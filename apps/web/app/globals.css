@@ -1,50 +1,291 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+@layer base {
+  :root {
+    /* Core Colors */
+    /* Refined Blue Palette */
+    --color-blue-50: 212deg 110% 98%; /* Lightest */
+    --color-blue-100: 212deg 108% 96%;
+    --color-blue-200: 212deg 88% 93%;
+    --color-blue-300: 212deg 104% 72%;
+    --color-blue-400: 212deg 102% 60%;
+    --color-blue-500: 212deg 100% 48%; /* Baseline */
+    --color-blue-600: 211deg 99% 42.5%;
+    --color-blue-700: 210deg 98% 37%;
+    --color-blue-800: 209deg 97% 26%;
+    --color-blue-900: 208deg 96% 15%; /* Darkest */
 
-  --callout-rgb: 20, 20, 20;
-  --callout-border-rgb: 108, 108, 108;
-  --card-rgb: 100, 100, 100;
-  --card-border-rgb: 200, 200, 200;
+    /* Refined Purple Palette */
+    --color-purple-50: 270deg 95% 98%;
+    --color-purple-100: 270deg 90% 95%;
+    --color-purple-200: 270deg 88% 93%;
+    --color-purple-300: 270deg 85% 76%;
+    --color-purple-400: 270deg 80% 64%;
+    --color-purple-500: 270deg 75% 52%;
+    --color-purple-600: 270deg 70% 40%;
+    --color-purple-700: 270deg 65% 30%;
+    --color-purple-800: 270deg 63% 28%;
+    --color-purple-900: 270deg 60% 25%;
 
-  --glow-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    #2a8af6 0deg,
-    #a853ba 180deg,
-    #e92a67 360deg
-  );
-}
+    /* Refined Green Palette */
+    --color-green-509: 178deg 90% 97%;
+    --color-green-100: 178deg 90% 85%;
+    --color-green-200: 178deg 88% 93%;
+    --color-green-300: 178deg 85% 66%;
+    --color-green-400: 178deg 75% 54%;
+    --color-green-500: 178deg 70% 40%;
+    --color-green-600: 178deg 65% 30%;
+    --color-green-700: 178deg 60% 25%;
+    --color-green-800: 178deg 50% 20%;
+    --color-green-900: 178deg 55% 15%;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+    /* Refined Red Palette */
+    --color-red-50: 0deg 87% 89.5%; /* Lightest */
+    --color-red-100: 357deg 84% 90%;
+    --color-red-200: 357deg 88% 93%;
+    --color-red-300: 357deg 80% 66%;
+    --color-red-400: 357deg 78% 54%;
+    --color-red-500: 357deg 76% 42%; /* Your baseline */
+    --color-red-600: 358deg 85% 32%;
+    --color-red-700: 353deg 72% 28%;
+    --color-red-800: 351deg 70% 24%;
+    --color-red-900: 349deg 55% 20%; /* Darkest */
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+    /* Refined Orange Palette */
+    --color-orange-50: 37deg 88% 100%; /* Lightest */
+    --color-orange-100: 37deg 94% 103%;
+    --color-orange-200: 37deg 92% 91%;
+    --color-orange-300: 37deg 90% 79%;
+    --color-orange-400: 37deg 88% 67%;
+    --color-orange-500: 37deg 86% 55%; /* Baseline */
+    --color-orange-600: 36deg 85% 49.5%;
+    --color-orange-700: 36deg 84% 45%;
+    --color-orange-800: 35deg 82% 35%;
+    --color-orange-900: 34deg 80% 15%; /* Darkest */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+    /* Refined Yellow Palette */
+    /* 42, 82%, 57% */
+    --color-yellow-50: 42deg 84% 98%; /* Lightest */
+    --color-yellow-100: 42deg 90% 105%;
+    --color-yellow-200: 42deg 92% 91%;
+    --color-yellow-300: 42deg 86% 81%;
+    --color-yellow-400: 42deg 84% 69%;
+    --color-yellow-500: 42deg 82% 57%; /* Baseline */
+    --color-yellow-600: 41deg 81% 51.5%;
+    --color-yellow-700: 41deg 80% 46%;
+    --color-yellow-800: 40deg 78% 35%;
+    --color-yellow-900: 39deg 76% 15%; /* Darkest */
 
-a {
-  color: inherit;
-  text-decoration: none;
+    /* Refined Teal Palette */
+    --color-teal-50: 180deg 90% 97%;
+    --color-teal-100: 180deg 90% 95%;
+    --color-teal-200: 180deg 90% 88%;
+    --color-teal-300: 180deg 85% 76%;
+    --color-teal-400: 180deg 80% 64%;
+    --color-teal-500: 180deg 75% 52%;
+    --color-teal-600: 180deg 70% 40%;
+    --color-teal-700: 180deg 65% 30%;
+    --color-teal-800: 180deg 60% 20%;
+    --color-teal-900: 180deg 55% 10%;
+
+    /* Refined Pink Palette */
+    --color-pink-50: 330deg 90% 97%;
+    --color-pink-100: 330deg 90% 95%;
+    --color-pink-200: 330deg 88% 93%;
+    --color-pink-300: 330deg 85% 76%;
+    --color-pink-400: 330deg 80% 64%;
+    --color-pink-500: 330deg 79% 52%;
+    --color-pink-600: 330deg 77% 40%;
+    --color-pink-700: 330deg 75% 30%;
+    --color-pink-800: 330deg 72% 20%;
+    --color-pink-900: 330deg 55% 20%;
+
+    /* Refined Neutral Palette */
+    --color-neutral-50: 0deg 0% 98%; /* Lightest neutral, almost white */
+    --color-neutral-100: 0deg 0% 96%;
+    --color-neutral-200: 0deg 0% 88%;
+    --color-neutral-300: 0deg 0% 76%;
+    --color-neutral-400: 0deg 0% 64%;
+    --color-neutral-500: 0deg 0% 52%; /* Medium neutral */
+    --color-neutral-600: 0deg 0% 40%;
+    --color-neutral-700: 0deg 0% 30%;
+    --color-neutral-800: 0deg 0% 20%;
+    --color-neutral-900: 0deg 0% 10%; /* Darkest neutral, nearly black */
+
+    /* UI Color Variables */
+    --background-main: var(--color-neutral-50);
+    --background-surface: var(--color-neutral-100);
+    --background-accent: var(--color-neutral-200);
+    --background-muted: var(--color-neutral-300);
+    --background-faint: var(--color-neutral-400);
+
+    --background-hover: var(--color-neutral-200);
+    --background-active: var(--color-neutral-400);
+    --background-focus: var(--color-neutral-500);
+    --background-selected: var(--color-neutral-600);
+    --background-disabled: var(--color-neutral-700);
+
+    /* Text Colors */
+    --text-main: var(--color-neutral-900);
+    --text-muted: var(--color-neutral-800);
+    --text-faint: var(--color-neutral-700);
+    --text-disabled: var(--color-neutral-600);
+
+    /* Border Colors */
+    --border-main: var(--color-neutral-300);
+    --border-muted: var(--color-neutral-400);
+    --border-faint: var(--color-neutral-500);
+    --border-disabled: var(--color-neutral-600);
+
+    /* Semantic Color Variables */
+
+    /* Primary Color Palette */
+    --primary-lightest: var(--color-yellow-50);
+    --primary-lighter: var(--color-yellow-200);
+    --primary-light: var(--color-yellow-400);
+    --primary-base: var(--color-yellow-500);
+    --primary-dark: var(--color-yellow-600);
+    --primary-darker: var(--color-yellow-800);
+    --primary-darkest: var(--color-yellow-900);
+
+    /* Secondary Color Palette */
+    --secondary-lightest: var(--color-purple-50);
+    --secondary-lighter: var(--color-purple-200);
+    --secondary-light: var(--color-purple-400);
+    --secondary-base: var(--color-purple-500);
+    --secondary-dark: var(--color-purple-600);
+    --secondary-darker: var(--color-purple-800);
+    --secondary-darkest: var(--color-purple-900);
+
+    /* State Color Variables */
+    --success-lightest: var(--color-green-50);
+    --success-lighter: var(--color-green-200);
+    --success-light: var(--color-green-400);
+    --success-base: var(--color-green-500);
+    --success-dark: var(--color-green-600);
+    --success-darker: var(--color-green-800);
+    --success-darkest: var(--color-green-900);
+
+    --warning-lightest: var(--color-orange-50);
+    --warning-lighter: var(--color-orange-200);
+    --warning-light: var(--color-orange-400);
+    --warning-base: var(--color-orange-500);
+    --warning-dark: var(--color-orange-600);
+    --warning-darker: var(--color-orange-800);
+    --warning-darkest: var(--color-orange-900);
+
+    --danger-lightest: var(--color-red-50);
+    --danger-lighter: var(--color-red-200);
+    --danger-light: var(--color-red-400);
+    --danger-base: var(--color-red-500);
+    --danger-dark: var(--color-red-600);
+    --danger-darker: var(--color-red-800);
+    --danger-darkest: var(--color-red-900);
+
+    --info-lightest: var(--color-blue-50);
+    --info-lighter: var(--color-blue-200);
+    --info-light: var(--color-blue-400);
+    --info-base: var(--color-blue-500);
+    --info-dark: var(--color-blue-600);
+    --info-darker: var(--color-blue-800);
+    --info-darkest: var(--color-blue-900);
+
+    --highlight-lightest: var(--color-pink-50);
+    --highlight-lighter: var(--color-pink-200);
+    --highlight-light: var(--color-pink-400);
+    --highlight-base: var(--color-pink-500);
+    --highlight-dark: var(--color-pink-600);
+    --highlight-darker: var(--color-pink-800);
+    --highlight-darkest: var(--color-pink-900);
+  }
+
+  .dark {
+    /* UI Color Variables */
+    --background-main: var(--color-neutral-900);
+    --background-surface: var(--color-neutral-800);
+    --background-accent: var(--color-neutral-700);
+    --background-muted: var(--color-neutral-600);
+    --background-faint: var(--color-neutral-500);
+
+    --background-hover: var(--color-neutral-700);
+    --background-active: var(--color-neutral-600);
+    --background-focus: var(--color-neutral-500);
+    --background-selected: var(--color-neutral-400);
+    --background-disabled: var(--color-neutral-300);
+
+    /* Text Colors */
+    --text-main: var(--color-neutral-50);
+    --text-muted: var(--color-neutral-100);
+    --text-faint: var(--color-neutral-200);
+    --text-disabled: var(--color-neutral-300);
+
+    /* Border Colors */
+    --border-main: var(--color-neutral-700);
+    --border-muted: var(--color-neutral-600);
+    --border-faint: var(--color-neutral-500);
+    --border-disabled: var(--color-neutral-400);
+
+    /* Semantic Color Variables */
+
+    /* Primary Color Palette */
+    --primary-lightest: var(--color-yellow-50);
+    --primary-lighter: var(--color-yellow-200);
+    --primary-light: var(--color-yellow-300);
+    --primary-base: var(--color-yellow-400);
+    --primary-dark: var(--color-yellow-500);
+    --primary-darker: var(--color-yellow-600);
+    --primary-darkest: var(--color-yellow-900);
+
+    /* Secondary Color Palette */
+    --secondary-lightest: var(--color-purple-50);
+    --secondary-lighter: var(--color-purple-200);
+    --secondary-light: var(--color-purple-300);
+    --secondary-base: var(--color-purple-400);
+    --secondary-dark: var(--color-purple-500);
+    --secondary-darker: var(--color-purple-600);
+    --secondary-darkest: var(--color-purple-900);
+
+    /* State Color Variables */
+    --success-lightest: var(--color-green-50);
+    --success-lighter: var(--color-green-200);
+    --success-light: var(--color-green-300);
+    --success-base: var(--color-green-400);
+    --success-dark: var(--color-green-500);
+    --success-darker: var(--color-green-600);
+    --success-darkest: var(--color-green-900);
+
+    --warning-lightest: var(--color-orange-50);
+    --warning-lighter: var(--color-orange-200);
+    --warning-light: var(--color-orange-300);
+    --warning-base: var(--color-orange-400);
+    --warning-dark: var(--color-orange-500);
+    --warning-darker: var(--color-orange-600);
+    --warning-darkest: var(--color-orange-900);
+
+    --danger-lightest: var(--color-red-50);
+    --danger-lighter: var(--color-red-200);
+    --danger-light: var(--color-red-300);
+    --danger-base: var(--color-red-400);
+    --danger-dark: var(--color-red-500);
+    --danger-darker: var(--color-red-600);
+    --danger-darkest: var(--color-red-900);
+
+    --info-lightest: var(--color-blue-50);
+    --info-lighter: var(--color-blue-200);
+    --info-light: var(--color-blue-300);
+    --info-base: var(--color-blue-400);
+    --info-dark: var(--color-blue-500);
+    --info-darker: var(--color-blue-600);
+    --info-darkest: var(--color-blue-900);
+
+    --highlight-lightest: var(--color-pink-50);
+    --highlight-lighter: var(--color-pink-200);
+    --highlight-light: var(--color-pink-300);
+    --highlight-base: var(--color-pink-400);
+    --highlight-dark: var(--color-pink-500);
+    --highlight-darker: var(--color-pink-600);
+    --highlight-darkest: var(--color-pink-900);
+  }
 }
